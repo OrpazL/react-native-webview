@@ -149,7 +149,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   protected boolean mAllowsFullscreenVideo = false;
   protected @Nullable String mUserAgent = null;
   protected @Nullable String mUserAgentWithApplicationName = null;
-  protected boolean mIgnoreSsl = false;
+  protected static boolean mIgnoreSsl = false;
 
   public RNCWebViewManager() {
     mWebViewConfig = new WebViewConfig() {
