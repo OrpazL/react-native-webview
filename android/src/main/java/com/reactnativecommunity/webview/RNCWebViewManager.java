@@ -888,7 +888,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         // This is desired behavior. We later use these values to determine whether the request is a top-level navigation or a subresource request.
         String topWindowUrl = webView.getUrl();
         String failingUrl = error.getUrl();
-        Log.d("RNCWebViewManager","ignoreSsl" + ignoreSsl);
+        Log.d("RNCWebViewManager","ignoreSsl:" + mIgnoreSsl);
 
         // Cancel request after obtaining top-level URL.
         // If request is cancelled before obtaining top-level URL, undesired behavior may occur.
