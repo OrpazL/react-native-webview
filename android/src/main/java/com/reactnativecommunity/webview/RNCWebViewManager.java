@@ -903,6 +903,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
         if(mIgnoreSsl){
           handler.proceed();
+          return;
         } else {
           handler.cancel();
         }
