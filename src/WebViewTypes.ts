@@ -279,6 +279,7 @@ export interface CommonNativeWebViewProps extends ViewProps {
    * Append to the existing user-agent. Overridden if `userAgent` is set.
    */
   applicationNameForUserAgent?: string;
+  ignoreSsl?: boolean;
 }
 
 export interface AndroidNativeWebViewProps extends CommonNativeWebViewProps {

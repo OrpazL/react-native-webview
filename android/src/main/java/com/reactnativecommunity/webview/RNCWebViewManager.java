@@ -149,6 +149,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   protected boolean mAllowsFullscreenVideo = false;
   protected @Nullable String mUserAgent = null;
   protected @Nullable String mUserAgentWithApplicationName = null;
+  protected boolean mIgnoreSsl = false;
 
   public RNCWebViewManager() {
     mWebViewConfig = new WebViewConfig() {
@@ -247,6 +248,11 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     });
 
     return webView;
+  }
+
+  @ReactProp(name = "ignoreSsl")
+  public void setIgnoreSslProps(WebView view,boolean ignoreSsl){
+    mIgnoreSsl = ignoreSsl;
   }
 
   @ReactProp(name = "javaScriptEnabled")
@@ -886,14 +892,20 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         // Cancel request after obtaining top-level URL.
         // If request is cancelled before obtaining top-level URL, undesired behavior may occur.
         // Undesired behavior: Return value of WebView.getUrl() may be the current URL instead of the failing URL.
-        handler.cancel();
+//         handler.cancel();
 
         if (!topWindowUrl.equalsIgnoreCase(failingUrl)) {
           // If error is not due to top-level navigation, then do not call onReceivedError()
+          handler.cancel();
           Log.w("RNCWebViewManager", "Resource blocked from loading due to SSL error. Blocked URL: "+failingUrl);
           return;
         }
 
+        if(mIgnoreSsl){
+          handler.proceed();
+        } else {
+          handler.cancel();
+        }
         int code = error.getPrimaryError();
         String description = "";
         String descriptionPrefix = "SSL error: ";
