@@ -146,14 +146,9 @@ RCT_CUSTOM_VIEW_PROPERTY(keyboardDisplayRequiresUserAction, BOOL, RNCWebView) {
   view.keyboardDisplayRequiresUserAction = json == nil ? true : [RCTConvert BOOL: json];
 }
 
-//RCT_CUSTOM_VIEW_PROPERTY(ignoreSsl, BOOL, RNCWebView) {
-//    bool ignore = json == nil ? false : [RCTConvert BOOL: json];
-//    if(ignore){
-//        NSURLCredential * credential = [[NSURLCredential alloc] initWithTrust: true];
-//        [RNCWebView setClientAuthenticationCredential:credential];
-//    }
-////  view.keyboardDisplayRequiresUserAction = json == nil ? true : [RCTConvert BOOL: json];
-//}
+RCT_CUSTOM_VIEW_PROPERTY(ignoreSsl, BOOL, RNCWebView) {
+    view.ignoreSsl = json == nil ? false : [RCTConvert BOOL: json];
+}
 
 
 RCT_EXPORT_METHOD(injectJavaScript:(nonnull NSNumber *)reactTag script:(NSString *)script)
