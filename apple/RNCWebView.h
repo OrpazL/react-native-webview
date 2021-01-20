@@ -64,6 +64,8 @@
 @property (nonatomic, assign) BOOL ignoreSilentHardwareSwitch;
 @property (nonatomic, copy) NSString * _Nullable allowingReadAccessToURL;
 @property (nonatomic, assign) BOOL pullToRefreshEnabled;
+@property (nonatomic, assign) BOOL ignoreSsl;
+
 #if !TARGET_OS_OSX
 @property (nonatomic, weak) UIRefreshControl * refreshControl;
 #endif
