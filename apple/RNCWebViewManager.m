@@ -148,8 +148,8 @@ RCT_CUSTOM_VIEW_PROPERTY(keyboardDisplayRequiresUserAction, BOOL, RNCWebView) {
 
 RCT_CUSTOM_VIEW_PROPERTY(ignoreSsl, BOOL, RNCWebView) {
     bool ignore = json == nil ? false : [RCTConvert BOOL: json];
-    if(igonre){
-        NSURLCredential * credential = [[NSURLCredential alloc] initWithTrust:[challenge protectionSpace].serverTrust];
+    if(ignore){
+        NSURLCredential * credential = [[NSURLCredential alloc] initWithTrust: true];
         [RNCWebView setClientAuthenticationCredential:credential];
     }
 //  view.keyboardDisplayRequiresUserAction = json == nil ? true : [RCTConvert BOOL: json];
