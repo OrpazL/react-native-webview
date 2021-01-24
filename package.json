@@ -5,7 +5,9 @@
   "typings": "index.d.ts",
   "author": "Aman Digital",
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "homepage": "https://www.aman.co.il",
+
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start:android": "react-native run-android",
