@@ -5,9 +5,7 @@
   "typings": "index.d.ts",
   "author": "Aman Digital",
   "license": "MIT",
-  "version": "0.0.3",
-  "homepage": "https://www.aman.co.il",
-
+  "version": "0.0.4",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start:android": "react-native run-android",
@@ -79,6 +77,6 @@
     "lib",
     "index.js",
     "index.d.ts",
-    "react-native-webview.podspec"
+    "webview-ignore-ssl.podspec"
   ]
 }
